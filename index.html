@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diana Emal — AI Research Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#FCF7F8;
+--text:#311C2E;
+--muted:#7F6678;
+--accent:#C4457A;
+--gold:#B88B33;
+--card:#FFFFFF;
+--line:rgba(49,28,46,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+background:var(--bg);
+font-family:"Inter",sans-serif;
+color:var(--text);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+}
+.wrapper{max-width:1100px;margin:auto;padding:0 36px}
+section{padding:70px 0}
+h1,h2,h3{font-family:"Newsreader",serif;font-weight:500}
+a{text-decoration:none;color:inherit}
+nav{
+position:sticky;top:0;z-index:10;
+backdrop-filter:blur(16px);
+background:rgba(252,247,248,.86);
+border-bottom:1px solid var(--line);
+}
+nav .wrapper{
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 36px;
+}
+nav ul{display:flex;gap:28px;list-style:none;font-size:.92rem;color:var(--muted)}
+.brand{font-family:"Newsreader",serif;font-size:1.1rem}
+.hero{
+padding:120px 0 90px;
+background:
+radial-gradient(circle at top right, rgba(196,69,122,.08), transparent 35%),
+radial-gradient(circle at bottom left, rgba(184,139,51,.06), transparent 40%);
+}
+.eyebrow{
+letter-spacing:.22em;
+text-transform:uppercase;
+font-size:.78rem;
+color:var(--gold);
+margin-bottom:24px;
+}
+.hero h1{
+font-size:clamp(3.5rem,8vw,5.7rem);
+line-height:.95;
+margin-bottom:22px;
+}
+.hero h2{
+font-size:1.5rem;
+font-weight:400;
+color:var(--accent);
+margin-bottom:28px;
+}
+.hero p{
+max-width:650px;
+font-size:1.06rem;
+color:#5B4557;
+margin-bottom:36px;
+}
+.pills{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-bottom:40px;
+}
+.pill{
+padding:10px 18px;
+border:1px solid #E7D7DF;
+border-radius:999px;
+font-size:.82rem;
+background:white;
+}
+.links{
+display:flex;
+gap:28px;
+flex-wrap:wrap;
+font-size:.92rem;
+color:var(--muted);
+}
+.links a:hover{color:var(--accent)}
+.heading{
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+margin-bottom:44px;
+}
+.heading span{
+font-size:.75rem;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:var(--muted);
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:22px;
+}
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:28px;
+padding:28px;
+box-shadow:0 10px 30px rgba(49,28,46,.04);
+}
+.card small{
+color:var(--gold);
+letter-spacing:.12em;
+text-transform:uppercase;
+font-size:.72rem;
+}
+.card h3{
+margin:12px 0 12px;
+font-size:1.5rem;
+}
+.card p{color:#624C5D}
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:18px;
+}
+.badge{
+padding:7px 14px;
+border-radius:999px;
+background:#FCF1F6;
+color:var(--accent);
+font-size:.78rem;
+}
+.paper{
+display:grid;
+grid-template-columns:1fr 220px;
+gap:30px;
+padding:36px;
+margin-bottom:28px;
+background:white;
+border:1px solid var(--line);
+border-radius:32px;
+box-shadow:0 12px 32px rgba(49,28,46,.04);
+}
+.paper .status{
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+background:#FCF1F6;
+color:var(--accent);
+font-size:.78rem;
+margin-bottom:18px;
+}
+.paper h3{
+font-size:2rem;
+line-height:1.15;
+margin-bottom:16px;
+}
+.paper p{color:#624C5D}
+.paper ul{
+margin:22px 0;
+padding-left:18px;
+color:#624C5D;
+}
+.paper li{margin-bottom:10px}
+.stack{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:22px;
+}
+.stack span{
+padding:8px 12px;
+border:1px solid #EADCE3;
+border-radius:999px;
+font-size:.78rem;
+}
+.actions{
+display:flex;
+gap:22px;
+margin-top:24px;
+font-size:.9rem;
+color:var(--accent);
+flex-wrap:wrap;
+align-items:center;
+}
+.actions button{
+background:none;
+border:none;
+font-family:"Inter",sans-serif;
+font-size:.9rem;
+color:var(--accent);
+cursor:pointer;
+padding:0;
+}
+.actions button:hover, .actions a:hover{
+text-decoration:underline;
+}
+.paper-frame{
+display:none;
+grid-column:1 / -1;
+width:100%;
+height:640px;
+margin-top:10px;
+border:1px solid var(--line);
+border-radius:20px;
+overflow:hidden;
+background:#FBF3F7;
+}
+.paper-frame.visible{ display:block; }
+.paper-frame embed{ width:100%; height:100%; }
+@media(max-width:820px){
+.paper-frame{ height:420px; }
+}
+.metric{
+border-left:2px solid #F1D7E2;
+padding-left:18px;
+}
+.metric h4{
+font-family:"Newsreader",serif;
+font-size:2rem;
+color:var(--accent);
+}
+.project{
+background:white;
+border:1px solid var(--line);
+border-radius:24px;
+padding:24px;
+display:flex;
+flex-direction:column;
+}
+.project small{
+color:var(--gold);
+letter-spacing:.12em;
+text-transform:uppercase;
+font-size:.72rem;
+}
+.project h3{
+margin:10px 0 10px;
+font-size:1.3rem;
+}
+.project p{
+color:#624C5D;
+font-size:.96rem;
+flex-grow:1;
+}
+.project .stack{
+margin-top:16px;
+}
+.project .actions{
+margin-top:18px;
+}
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:28px;
+}
+.skill{
+padding:24px;
+border-top:2px solid #F3D8E2;
+}
+.skill h4{
+font-size:.8rem;
+letter-spacing:.14em;
+text-transform:uppercase;
+color:var(--gold);
+margin-bottom:14px;
+}
+.skill p{
+color:#5F495B;
+font-size:.95rem;
+}
+.timeline{
+border-left:2px solid #F1D7E2;
+margin-left:10px;
+padding-left:28px;
+display:grid;
+gap:28px;
+}
+.timeline b{color:var(--accent)}
+footer{
+padding:100px 0 70px;
+text-align:center;
+background:linear-gradient(#FCF7F8,#F8F1F4);
+border-top:1px solid var(--line);
+}
+footer h2{
+font-size:2.5rem;
+margin-bottom:18px;
+}
+footer p{
+max-width:600px;
+margin:auto;
+color:#624C5D;
+margin-bottom:30px;
+}
+footer .links{
+justify-content:center;
+}
+@media(max-width:820px){
+.paper{
+grid-template-columns:1fr;
+}
+.heading{
+flex-direction:column;
+align-items:flex-start;
+gap:8px;
+}
+.hero{
+padding-top:90px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="wrapper">
+<div class="brand">Diana Emal</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#research">Research</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<header class="hero">
+<div class="wrapper">
+
+<div class="eyebrow">Computer Science • AI & Data Mining • University of the Fraser Valley</div>
+
+<h1>Diana Emal</h1>
+
+<h2>Building AI systems that see, predict, and optimize real world decisions.</h2>
+
+<p>
+Computer Science student specializing in <strong>Artificial Intelligence and Data Mining</strong>, with research interests in computer vision, reinforcement learning, intelligent systems, and applied machine learning.
+I'm interested in developing AI methods that translate complex real world data into practical solutions. From multi-view 3D tree localization using UAV imagery to reinforcement learning for smart city resource allocation and healthcare AI systems.
+</p>
+
+<div class="pills">
+<div class="pill">Computer Vision</div>
+<div class="pill">Reinforcement Learning</div>
+<div class="pill">Machine Learning</div>
+<div class="pill">Remote Sensing AI</div>
+</div>
+
+<div class="links">
+<a href="https://github.com/dianaemal" target="_blank">GitHub ↗</a>
+<a href="https://www.linkedin.com/in/diana-emal/">LinkedIn ↗</a>
+<a href="#research">Research ↓</a>
+</div>
+
+</div>
+</header>
+
+<section id="about">
+<div class="wrapper">
+
+<div class="heading">
+<h2>About</h2>
+<span>Research Focus</span>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<small>Education</small>
+<h3>B.Sc. Computer Science</h3>
+<p>University of the Fraser Valley</p>
+<p>Artificial Intelligence & Data Mining Concentration</p>
+</div>
+
+<div class="card">
+<small>Current Research</small>
+<h3>Conference Submissions</h3>
+<p>IEEE AP-GARSS 2026</p>
+<p>ACDSA 2027</p>
+</div>
+
+<div class="card">
+<small>Seeking</small>
+<h3>Graduate Research</h3>
+<p>Research assistantships, master's supervision, and collaboration in AI and machine learning.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="wrapper">
+
+<div class="heading">
+<h2>Research Interests</h2>
+<span>Areas I'm Exploring</span>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<small>Computer Vision</small>
+<h3>3D Perception</h3>
+<p>Multi-view geometry, segmentation, structure-from-motion, UAV imagery, remote sensing, and environmental mapping.</p>
+</div>
+
+<div class="card">
+<small>Reinforcement Learning</small>
+<h3>Decision Making</h3>
+<p>Sequential decision making, PPO, simulation environments, and resource allocation under uncertainty.</p>
+</div>
+
+<div class="card">
+<small>Machine Learning</small>
+<h3>Predictive Systems</h3>
+<p>Time-series forecasting, predictive analytics, data mining, and intelligent operational systems.</p>
+</div>
+
+<div class="card">
+<small>Healthcare AI</small>
+<h3>Clinical Intelligence</h3>
+<p>Medical imaging, retrieval-augmented generation, and AI-assisted clinical decision support.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="research">
+<div class="wrapper">
+
+<div class="heading">
+<h2>Research</h2>
+<span>Publications & Conference Work</span>
+</div>
+
+<div class="paper">
+
+<div>
+<div class="status">Conference Submission • ACDSA 2027</div>
+
+<h3>AI-Driven Smart City Service Management using Predictive Analytics and Reinforcement Learning</h3>
+
+<p><strong>Dr. Ismail El Sayad</strong> • School of Computing, University of the Fraser Valley</p>
+
+<p>
+Developed a reinforcement learning framework that proactively allocates municipal service crews using demand forecasting and sequential decision making across Vancouver's 311 service system.
+</p>
+
+<ul>
+<li>Built a PPO-based dispatch agent trained on approximately 1.18 million City of Vancouver 311 records.</li>
+<li>Integrated XGBoost demand forecasting directly into the RL environment.</li>
+<li>Designed a scalable priority-vector action space for crew allocation.</li>
+<li>Evaluated against multiple baseline dispatch policies across paired simulations.</li>
+</ul>
+
+<div class="stack">
+<span>PPO</span>
+<span>XGBoost</span>
+<span>Gymnasium</span>
+<span>Stable-Baselines3</span>
+<span>Python</span>
+</div>
+
+<div class="actions">
+<button onclick="togglePaper('paper-smartcity')">Preview Paper ▾</button>
+<a href="papers/Emal_ElSayad_SmartCityRL_ACDSA.pdf" target="_blank">Open PDF ↗</a>
+<a href="https://github.com/dianaemal/smart-city-rl" target="_blank">GitHub Repository ↗</a>
+</div>
+
+</div>
+
+<div class="metric">
+<h4>1.18M</h4>
+<p>311 service requests</p>
+
+<br>
+
+<h4>22</h4>
+<p>Local areas modeled</p>
+</div>
+
+<div id="paper-smartcity" class="paper-frame">
+<embed src="papers/Emal_ElSayad_SmartCityRL_ACDSA.pdf" type="application/pdf" />
+</div>
+
+</div>
+
+<div class="paper">
+
+<div>
+
+<div class="status">IEEE AP-GARSS 2026 • Full Paper Under Review</div>
+
+<h3>Multi-View 3D Tree Localization from UAV Imagery Using Segmentation and Ray Triangulation</h3>
+
+<p><strong>Dr. Kongwen Frank Zhang</strong> • School of Computing, University of the Fraser Valley</p>
+
+<p>
+Developed a computer vision pipeline for localizing trees from multi-view UAV imagery using segmentation, structure-from-motion, and least-squares geometric triangulation.
+</p>
+
+<ul>
+<li>Combined SAM2 segmentation with COLMAP camera reconstruction.</li>
+<li>Localized trees across multiple viewpoints without GPS camera poses.</li>
+<li>Built an end-to-end workflow compatible with Google Colab.</li>
+</ul>
+
+<div class="stack">
+<span>SAM2</span>
+<span>COLMAP</span>
+<span>Multi-view Geometry</span>
+<span>Python</span>
+</div>
+
+<div class="actions">
+<button onclick="togglePaper('paper-tree')">Preview Paper ▾</button>
+<a href="papers/Emal_Zhang_TreeLocalization_APGARSS2026.pdf" target="_blank">Open PDF ↗</a>
+<a href="https://github.com/dianaemal/tree-mapping" target="_blank">GitHub Repository ↗</a>
+</div>
+
+</div>
+
+<div class="metric">
+<h4>20</h4>
+<p>Trees localized</p>
+
+<br>
+
+<h4>7–15</h4>
+<p>Views per tree</p>
+</div>
+
+<div id="paper-tree" class="paper-frame">
+<embed src="papers/Emal_Zhang_TreeLocalization_APGARSS2026.pdf" type="application/pdf" />
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="projects">
+<div class="wrapper">
+
+<div class="heading">
+<h2>Projects</h2>
+<span>5 Shipped</span>
+</div>
+
+<div class="grid">
+
+<div class="project">
+<small>Healthcare AI</small>
+<h3>Medical Triage Assistant</h3>
+<p>A RAG-based clinical triage system: FAISS retrieval over a medical knowledge base grounds a locally-hosted LLM, which sorts symptoms into a four-tier urgency scale with automatic emergency escalation.</p>
+<div class="stack">
+<span>FastAPI</span>
+<span>React</span>
+<span>FAISS</span>
+<span>Ollama</span>
+</div>
+<div class="actions"><a href="https://github.com/dianaemal/medical-triag" target="_blank">View Repository ↗</a></div>
+</div>
+
+<div class="project">
+<small>Healthcare AI</small>
+<h3>Breast Cancer Image Classification</h3>
+<p>A classification pipeline over a ~700-image dataset, covering preprocessing, feature extraction, and model evaluation for breast cancer detection.</p>
+<div class="stack">
+<span>Python</span>
+<span>Deep Learning</span>
+<span>Notebooks</span>
+</div>
+<div class="actions"><a href="https://github.com/dianaemal/breast_cancer_project" target="_blank">View Repository ↗</a></div>
+</div>
+
+<div class="project">
+<small>Machine Learning</small>
+<h3>Neural Network From Scratch</h3>
+<p>A feedforward neural network implemented from first principles, without a high-level deep learning framework, trained on MNIST and Fashion-MNIST with tracked loss/accuracy curves.</p>
+<div class="stack">
+<span>Python</span>
+<span>NumPy</span>
+</div>
+<div class="actions"><a href="https://github.com/dianaemal/neuralNetwork" target="_blank">View Repository ↗</a></div>
+</div>
+
+<div class="project">
+<small>Full-Stack</small>
+<h3>Personal Finance Tracker</h3>
+<p>A full-stack finance app with multi-account transaction tracking, budgeting, and category management, secured with JWT authentication.</p>
+<div class="stack">
+<span>FastAPI</span>
+<span>SQLAlchemy</span>
+<span>React</span>
+</div>
+<div class="actions"><a href="https://github.com/dianaemal/finance_tracker" target="_blank">View Repository ↗</a></div>
+</div>
+
+<div class="project">
+<small>Full-Stack</small>
+<h3>AI-Assisted Resume Builder</h3>
+<p>A deployed resume builder with ATS-friendly templates, live preview, PDF export, and AI-generated content suggestions.</p>
+<div class="stack">
+<span>Django</span>
+<span>React</span>
+<span>Vercel</span>
+</div>
+<div class="actions"><a href="https://resu-me-six.vercel.app" target="_blank">Live Demo ↗</a></div>
+<div class="actions"><a href="https://github.com/dianaemal/ResuMe" target="_blank">View Repository ↗</a></div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="skills">
+<div class="wrapper">
+
+<div class="heading">
+<h2>Technical Skills</h2>
+<span>Languages · ML · Frameworks</span>
+</div>
+
+<div class="skills">
+
+<div class="skill">
+<h4>Programming</h4>
+<p>Python</p>
+<p>Java</p>
+<p>JavaScript</p>
+<p>SQL</p>
+<p>C</p>
+</div>
+
+<div class="skill">
+<h4>Machine Learning</h4>
+<p>PyTorch</p>
+<p>Scikit-learn</p>
+<p>Stable-Baselines3</p>
+<p>XGBoost</p>
+<p>Pandas</p>
+</div>
+
+<div class="skill">
+<h4>Computer Vision</h4>
+<p>SAM2</p>
+<p>COLMAP</p>
+<p>OpenCV</p>
+<p>Multi-view Geometry</p>
+</div>
+
+<div class="skill">
+<h4>Frameworks</h4>
+<p>FastAPI</p>
+<p>Django</p>
+<p>React</p>
+<p>SQLAlchemy</p>
+</div>
+
+<div class="skill">
+<h4>Tools</h4>
+<p>Git & GitHub</p>
+<p>Linux</p>
+<p>Google Colab</p>
+<p>VS Code</p>
+</div>
+
+<div class="skill">
+<h4>Data & AI</h4>
+<p>NumPy</p>
+<p>FAISS</p>
+<p>PostgreSQL</p>
+<p>Time-Series Forecasting</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<footer id="contact">
+<div class="wrapper">
+
+<h2>Interested in collaborating on AI research?</h2>
+
+<p>
+I'm currently seeking graduate research opportunities in computer vision,
+reinforcement learning, remote sensing, and applied machine learning.
+</p>
+
+<div class="links">
+<a href="mailto:diana.emal@student.ufv.ca">diana.emal@student.ufv.ca</a>
+<a href="https://github.com/dianaemal" target="_blank">GitHub ↗</a>
+<a href="https://www.linkedin.com/in/diana-emal/">LinkedIn ↗</a>
+</div>
+
+<p style="margin-top:50px;color:#9B8594;font-size:.85rem;">Last updated — September 2026</p>
+
+</div>
+</footer>
+
+<script>
+function togglePaper(id){
+var frame = document.getElementById(id);
+var visible = frame.classList.toggle('visible');
+var btn = event.target;
+btn.textContent = visible ? 'Hide Preview ▴' : 'Preview Paper ▾';
+}
+</script>
+</body>
+</html>
